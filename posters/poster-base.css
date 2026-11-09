@@ -1,0 +1,431 @@
+/* Fly Aero — print & social poster system */
+:root {
+  --navy: #052847;
+  --royal: #1a73e8;
+  --gold: #c9a227;
+  --gold-light: #e3c56a;
+  --sky: #e8f2fc;
+  --white: #ffffff;
+  --text-muted: #5a6b7d;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body.poster-hub {
+  font-family: "Poppins", system-ui, sans-serif;
+  background: #0a1628;
+  color: #e8f2fc;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+body.poster-hub h1 {
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+body.poster-hub .lead {
+  color: #94a8c4;
+  max-width: 640px;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+}
+
+.poster-grid-hub {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
+  max-width: 1100px;
+}
+
+.poster-grid-hub a {
+  text-decoration: none;
+  color: inherit;
+  background: #132842;
+  border: 1px solid rgba(201, 162, 39, 0.35);
+  border-radius: 12px;
+  padding: 1rem;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.poster-grid-hub a:hover {
+  transform: translateY(-4px);
+  border-color: var(--gold);
+}
+
+.poster-grid-hub .thumb {
+  aspect-ratio: 3/4;
+  border-radius: 8px;
+  background: var(--sky);
+  overflow: hidden;
+  margin-bottom: 0.75rem;
+}
+
+.poster-grid-hub .thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.poster-grid-hub h2 {
+  font-size: 0.95rem;
+  color: var(--gold-light);
+}
+
+.poster-grid-hub p {
+  font-size: 0.8rem;
+  color: #94a8c4;
+  margin-top: 0.35rem;
+}
+
+.hub-tip {
+  margin-top: 2rem;
+  font-size: 0.85rem;
+  color: #64748b;
+  max-width: 640px;
+}
+
+/* Canvas: fixed artboard */
+.poster-canvas {
+  font-family: "Poppins", sans-serif;
+  background: var(--white);
+  color: var(--navy);
+  position: relative;
+  overflow: hidden;
+  margin: 0 auto;
+  box-shadow: 0 24px 80px rgba(5, 40, 71, 0.35);
+}
+
+.poster-canvas--portrait {
+  width: 600px;
+  height: 800px;
+}
+
+.poster-canvas--square {
+  width: 600px;
+  height: 600px;
+}
+
+.poster-canvas--story {
+  width: 405px;
+  height: 720px;
+}
+
+.poster-canvas__hero {
+  position: relative;
+  height: 200px;
+  background: linear-gradient(135deg, #0d3d6b 0%, var(--royal) 45%, #7eb8f5 100%);
+  overflow: hidden;
+}
+
+.poster-canvas__hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 40%, rgba(255, 255, 255, 0.92) 100%);
+}
+
+.poster-canvas__hero img.landmarks {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 55%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.85;
+}
+
+.poster-canvas__logo {
+  position: absolute;
+  left: 16px;
+  top: 14px;
+  z-index: 2;
+  width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.poster-canvas__logo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.poster-canvas__headline {
+  position: absolute;
+  left: 16px;
+  bottom: 28px;
+  z-index: 2;
+  max-width: 58%;
+}
+
+.poster-canvas__headline .script {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.65rem;
+  color: var(--gold);
+  line-height: 1.1;
+  display: block;
+}
+
+.poster-canvas__headline h1 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  line-height: 1.15;
+}
+
+.poster-canvas__headline p {
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.poster-badge {
+  position: absolute;
+  right: 12px;
+  bottom: 20px;
+  z-index: 2;
+  background: var(--navy);
+  color: var(--gold-light);
+  font-size: 0.55rem;
+  font-weight: 700;
+  padding: 8px 10px;
+  border-radius: 6px;
+  text-align: center;
+  line-height: 1.35;
+  border: 2px solid var(--gold);
+  max-width: 120px;
+}
+
+.poster-body {
+  padding: 14px 16px 12px;
+}
+
+.poster-body h2 {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: var(--navy);
+  margin-bottom: 12px;
+}
+
+.poster-services {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.poster-services--3col {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.poster-service-cell {
+  background: var(--sky);
+  border: 1.5px solid var(--navy);
+  border-radius: 8px;
+  padding: 8px 4px;
+  text-align: center;
+}
+
+.poster-service-cell i {
+  font-size: 1.1rem;
+  color: var(--navy);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.poster-service-cell span {
+  font-size: 0.48rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  line-height: 1.2;
+  display: block;
+  color: var(--navy);
+}
+
+.poster-service-cell--highlight {
+  background: linear-gradient(160deg, var(--navy), #0d3d6b);
+  border-color: var(--gold);
+}
+
+.poster-service-cell--highlight i,
+.poster-service-cell--highlight span {
+  color: var(--gold-light);
+}
+
+.poster-ribbon {
+  margin: 12px 0 0;
+  background: linear-gradient(90deg, var(--navy), #0d3d6b);
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.poster-ribbon .seal {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--navy);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  flex-shrink: 0;
+}
+
+.poster-ribbon .text strong {
+  display: block;
+  font-size: 0.58rem;
+  color: var(--gold-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.poster-ribbon .text em {
+  font-family: "Great Vibes", cursive;
+  font-style: normal;
+  font-size: 1rem;
+  color: var(--gold-light);
+}
+
+.poster-footer {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  padding: 12px 16px 14px;
+  background: #f4f8fc;
+  border-top: 2px solid var(--gold);
+}
+
+.poster-footer h3 {
+  font-size: 0.52rem;
+  color: var(--gold);
+  letter-spacing: 0.15em;
+  margin-bottom: 6px;
+}
+
+.poster-footer p,
+.poster-footer a {
+  font-size: 0.48rem;
+  font-weight: 600;
+  color: var(--navy);
+  line-height: 1.45;
+  text-decoration: none;
+}
+
+.poster-footer .cta {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-footer .cta i {
+  font-size: 1.4rem;
+  color: var(--royal);
+  margin-bottom: 4px;
+}
+
+.poster-theme-strip {
+  height: 6px;
+  background: linear-gradient(90deg, var(--gold), var(--royal), var(--gold));
+}
+
+/* Focus / specialty posters */
+.poster-focus-title {
+  text-align: center;
+  padding: 20px 16px 8px;
+}
+
+.poster-focus-title .icon-ring {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 12px;
+  border-radius: 50%;
+  background: var(--sky);
+  border: 3px solid var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  color: var(--navy);
+}
+
+.poster-focus-title h1 {
+  font-size: 1.5rem;
+  color: var(--navy);
+}
+
+.poster-focus-title p {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+.poster-bullets {
+  list-style: none;
+  padding: 0 20px 16px;
+}
+
+.poster-bullets li {
+  font-size: 0.68rem;
+  padding: 8px 0;
+  border-bottom: 1px dashed rgba(5, 40, 71, 0.15);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.poster-bullets li i {
+  color: var(--gold);
+  margin-top: 2px;
+}
+
+.poster-social-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 8px;
+  background: var(--navy);
+}
+
+.poster-social-row i {
+  color: var(--gold-light);
+  font-size: 1rem;
+}
+
+body.poster-export-page {
+  background: #1a1a2e;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+@media print {
+  body.poster-export-page {
+    background: white;
+    padding: 0;
+  }
+  .poster-canvas {
+    box-shadow: none;
+  }
+}

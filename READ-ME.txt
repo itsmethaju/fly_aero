@@ -1,0 +1,12 @@
+  =>  Project Name     : Fly Aero Travel & Tourism — Website
+  =>  Client           : Fly Aero Travel & Tourism (Muhammed Rizwan Shabeer)
+  =>  Website          : https://www.flyaerotravels.com
+  =>  Contact          : flyaerotravels@gmail.com | +91 7994100373 | +971 54443 6265
+
+  =>  Based on         : HTML Codex visa/travel template (customized for Fly Aero)
+  =>  Template License : See LICENSE.txt (template author credit in LICENSE)
+
+  =>  Main files       : index.html (home), about.html, service.html, contact.html
+  =>  Brand assets     : img/fly-aero-logo.jpg, img/fly-aero-flyer.jpg, img/fly-aero-card.jpg
+
+  Open index.html in a browser to preview locally.
